@@ -1,0 +1,135 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    background: conic-gradient(
+        rgb(199, 199, 127), rgb(201, 120, 120), rgb(126, 212, 126), rgb(106, 106, 188)
+    );
+    
+    height: 100vh;
+}
+h1 {
+    text-align: center;
+    color: #333;
+    font-family: cursive;
+    font-size: 72px; color: black; 
+    text-shadow: 2px 2px 5px white, -2px -2px 5px white;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+.left {
+    flex: 1;
+    padding: 20px;
+}
+.right {
+    flex: 1;
+    padding: 20px;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+}
+#button {
+    font-size: medium;
+    background-color: #4CAF50;
+    color: white;
+    width: 10vw;
+    align-self: center;
+    
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+}
+#button:hover {
+    background-color: #af76e0;
+}
+
+#button:active{
+    background-color: rgb(156, 86, 180);
+}
+
+/*Right side*/
+
+.header {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0px;
+    border-radius: 4px;
+    margin: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.header span{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 25%;
+    
+    align-self: center;
+    text-align: center  ;
+}
+
+
+/*New Id's*/
+
+.studentList{
+    
+    margin: 10px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(216, 228, 255);
+
+}
+
+.insideEl{
+    width: 20%;
+    text-align: center;
+    
+}
+
+.image{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img{
+    height: 30px;
+    width: 30px;
+}
+
+.delresBtn{
+    background-color: rgb(206, 217, 243);
+    padding: 0;
+    padding-block: 0px;
+    padding-inline: 0px;
+    border-style: none;
+    border-color: rgb(162, 186, 243);;
+    border-image: initial;
+}
