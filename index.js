@@ -12,6 +12,70 @@ const studentList = document.getElementById('studentList');
 
 let editingStudent = null;    
 
+// function to save students in local storage as objects
+
+function saveStuDet(){
+    const students = [];
+    document.querySelectorAll('.studentList').forEach(student => {
+        const details = student.querySelectorAll('p');
+        students.push({
+            name: details[0].innerHTML,
+            id: details[1].innerHTML,
+            class: details[2].innerHTML,
+            roll: details[3].innerHTML
+        })
+    })
+    localStorage.setItem('students',JSON.stringify(students));
+}
+
+
+// function to load students from local storage
+
+function loadStuDet(){
+    const students = JSON.parse(localStorage.getItem('students')) || [];
+    students.forEach(student =>{
+        const studentNewId = document.createElement('div');
+        const studentName = document.createElement('p');
+        studentName.innerHTML = student.name;
+        studentNewId.appendChild(studentName)
+    
+        
+        const studentId = document.createElement('p');
+        studentId.innerHTML = student.id;
+        studentNewId.appendChild(studentId)
+    
+        const studentClass = document.createElement('p');
+        studentClass.innerHTML = student.class;
+        studentNewId.appendChild(studentClass)
+    
+        const studentRoll = document.createElement('p');
+        studentRoll.innerHTML = student.roll;
+        studentNewId.appendChild(studentRoll)
+    
+        const delRes = document.createElement('div');
+        const delButton = document.createElement('button');
+        delButton.innerHTML = '<img class="delresBt" src ="cross_14875490.png"></img>'
+        delButton.classList.add("delresBtn")
+        delRes.appendChild(delButton)
+        const resButton = document.createElement('button');
+        resButton.innerHTML = '<img class= "editBtn" src ="pen_12080619.png"></img>'
+        resButton.classList.add("delresBtn")
+        delRes.appendChild(resButton)
+        studentNewId.appendChild(delRes)
+    
+        studentList.appendChild(studentNewId);
+    
+        studentNewId.classList.add("studentList")
+        studentName.classList.add("insideEl")
+        studentId.classList.add("insideEl")
+        studentRoll.classList.add("insideEl")
+        studentClass.classList.add("insideEl")
+        delRes.classList.add('insideEl')
+        delRes.classList.add('image')
+        
+    })
+}
+
 
 const addStudentId = function(event){
     event.preventDefault();
@@ -79,6 +143,7 @@ const addStudentId = function(event){
     delRes.classList.add('insideEl')
     delRes.classList.add('image')
     
+    saveStuDet();
 
     sName.value = '';
     id.value = '';
@@ -102,6 +167,8 @@ const deleteStudent = function(event){
         const delForever = delFor.parentElement;
         const justDel = delForever.parentElement
         justDel.remove();
+
+        saveStuDet();
 
     }
 }
@@ -128,3 +195,5 @@ const editStudent = function(event){
 }
 
 container.addEventListener('click',editStudent)
+
+loadStuDet();
