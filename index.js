@@ -95,6 +95,11 @@ const addStudentId = function(event){
 
         editingStudent = null;
         button.innerHTML = "Add";
+
+        sName.value = '';
+        id.value = '';
+        sClass.value = '';
+        roll.value = '';
     } else {
     
     if(sName.value == '') return;
@@ -190,6 +195,8 @@ const editStudent = function(event){
         roll.value = studentDetails[3].innerHTML;   
 
         button.innerHTML = "update"
+
+        
 
     }
 }
